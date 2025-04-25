@@ -1,0 +1,29 @@
+<#
+.SYNOPSIS
+    This PowerShell script enhances anti-spoofing provides additional protections when using facial recognition with devices that support it.
+
+.NOTES
+    Author          : Quintin Harrigin
+    LinkedIn        : linkedin.com/in/quintin-harrigin-21033b303/
+    GitHub          : github.com/Crimson5th
+    Date Created    : 2024-25-04
+    Last Modified   : 2024-25-04
+    Version         : 1.0
+    CVEs            : N/A
+    Plugin IDs      : N/A
+    STIG-ID         : WN10-CC-000195
+
+.TESTED ON
+    Date(s) Tested  : 
+    Tested By       : 
+    Systems Tested  : 
+    PowerShell Ver. : 
+
+.USAGE
+    Put any usage instructions here.
+    Example syntax:
+    PS C:\> .\(STIG-ID-WN10-CC-000195).ps1 
+#>
+
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures" -Force | Out-Null
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures" -Name "EnhancedAntiSpoofing" -Value 1 -Type DWord
