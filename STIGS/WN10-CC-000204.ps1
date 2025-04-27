@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This PowerShell script ensures that the maximum size of the Windows Application event log is at least 32768 KB (32 MB).
+    This PowerShell script: If Enhanced diagnostic data is enabled it must be limited to the minimum required to support Windows Analytics.
 
 .NOTE
     Author          : Quintin Harrigin
