@@ -25,4 +25,14 @@
     PS C:\> .\(STIG-ID-WN10-CC-000235).ps1 
 #>
 
-# YOUR CODE GOES HERE
+$regPath = "HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"
+
+# Ensure the registry key exists
+if (-not (Test-Path $regPath)) {
+    New-Item -Path $regPath -Force | Out-Null
+}
+
+# Set the registry values
+Set-ItemProperty -Path $regPath -Name "PreventOverride" -Value 1 -Type DWord
+Set-ItemProperty -Path $regPath -Name "PreventOverrideAppRepUnknown" -Value 1 -Type DWord
+
